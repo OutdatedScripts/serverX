@@ -1,66 +1,57 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("ServerX", "Midnight")
-local Main = Window:NewTab("Home")
-local Hom = Main:NewSection("Games")
-local Ho = Main:NewSection("Exploiting Must have")
-local Player = Window:NewTab("LocalPlayer")
-local Home = Window:NewTab("Info")
-local PlayerSection = Player:NewSection("Sliders")
-local Prison = Window:NewTab("Prison Life")
-local Prisonstuff = Prison:NewSection("Prison Life")
-local Info = Home:NewSection("SERVER X | ITS YOUR TURN TO WIN.")
-local Info = Home:NewSection("Discord | https://discord.gg/uBpD5PcQME")
-local pages = Instance.new("RemoteEvent")
+if game.PlaceId == 155615604 then
+	local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+	local Window = Library.CreateLib("Prison Life", "Midnight")
+	local Prison = Window:NewTab("Prison Life")
+	local Prisonstuff = Prison:NewSection("Prison Life Guns")
 
--- the buttons xo
-Hom:NewButton("Funky Friday AutoPlayer", "Loads Autoplayer made by wally-rblx.",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/wally-rblx/funky-friday-autoplay/main/main.lua",true))()
-    print("Server X has loaded: Funky Friday Autoplayer")
-end)
+	Prisonstuff:NewDropdown("Give Weapon","Gives Weapon to you.", {"M9","Remington 870","AK-47","M4A1"}, function(v)
 
-Hom:NewButton("Battle Gods Simulator", "Loads AutoFarm. made by wally-rblx.",function()
-    loadstring(game:HttpGet("https://system-exodus.com/scripts/misc-releases/battlegods.lua",true))()
-    print("Server X has loaded: Battle Gods Simulator Autofarm")
-end)
+		local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver[v].ITEMPICKUP
+		local Event = game:GetService("Workspace").Remote.ItemHandler
+		Event:InvokeServer(A_1)
+	end)
+	
+	Prisonstuff:NewDropdown("Extras","Gives Misc Items.", {"Crude Knife","Hammer","Key card"}, function(v)
 
-Hom:NewButton("Jailbreak Auto Arrest (PATCHED)", "Loads AutoArrest. Made my Imperium.",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Splooshhy/PantherHub/main/AutoArrest"))()
-    print("Server X has loaded: Jailbreak AutoArrest")
-end)
-
-PlayerSection:NewSlider("WalkSpeed", "Modifies your speed.", 250, 0, function(v) -- 500 (maxvalue) | 0, (minValue))
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
-end)
-
-PlayerSection:NewSlider("Jumppower", "Modifies your jumppower.", 250, 0, function(v) -- 500 (maxvalue) | 0, (minValue))
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
-end)
-
-Ho:NewButton("Dark Dex V4", "Loads Darkdex. made by Moon.",function()
-    loadstring(game:GetObjects("rbxassetid://418957341")[1].Source)()
-    print("Server X has loaded: Dark Dex")
-end)
-
-Ho:NewButton("Vaeb's Remote Spy", "Loads RemoteSpy. Made by Vaeb. (CONSOLE)",function()
-    loadstring(game:HttpGet("https://lindseyhost.com/RemoteSpy.txt",true))()
-    print("Server X has loaded: Vaeb's RemoteSpy")
-end)
-
-Prisonstuff:NewDropdown("Give Weapon","Gives Weapon to you.", {"M9","Remington 870","AK-47","M4A1"}, function(v)
-
-    local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver[v].ITEMPICKUP
-    local Event = game:GetService("Workspace").Remote.ItemHandler
-    Event:InvokeServer(A_1)
-end)
-
-Prisonstuff:NewDropdown("Extras","Gives Weapon to friend.", {"Crude Knife","Hammer","Key card"}, function(v)
-
-    local A_1 = game:GetService("Workspace")["Prison_ITEMS"].single[v].ITEMPICKUP
-    local Event = game:GetService("Workspace").Remote.ItemHandler
-    Event:InvokeServer(A_1)
-end)
+		local A_1 = game:GetService("Workspace")["Prison_ITEMS"].single[v].ITEMPICKUP
+		local Event = game:GetService("Workspace").Remote.ItemHandler
+		Event:InvokeServer(A_1)
+	end)
+end
 
 
+if game.PlaceId == 6447798030 then
+	local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+	local Window = Library.CreateLib("Funky Friday Loader", "Midnight")
+	local Funk = Window:NewTab("FF Autoplayer")
+	local FunkStuff = Funk:NewSection("Funky Friday")
+	Funk:NewButton("Funky Friday AP", "Funky Friday Autoplayer.",function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/wally-rblx/funky-friday-autoplay/main/main.lua",true))()
+		print("Server X has loaded: Funky Friday Autoplayer!")
+	end)
+end
+
+if game.PlaceId == 5229400211 then
+	local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+	local Window = Library.CreateLib("Battle Gods Simulator", "Midnight")
+	local Battle = Window:NewTab("FF Autoplayer")
+	local FunkStuff = Battle:NewSection("Funky Friday")
+	Battle:NewButton("Battle Gods Farm", "autofarmer",function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/kgxZXP3k",true))()
+		print("Server X has loaded: Some script thingy!!")
+	end)
+end
+
+if game.PlaceId == 3376584594 then
+	local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+	local Window = Library.CreateLib("Pilot Simulator", "Midnight")
+	local Battle = Window:NewTab("Get Inf Money")
+	local FunkStuff = Battle:NewSection("Pilot Simulator")
+	Battle:NewButton("Pilot Sim Inf Cash", "literally gives inf cash bruh",function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/kgxZXP3k",true))()
+		print("Server X has loaded: Some cash amogus thingy!!")
+	end)
+end
 
 
 
